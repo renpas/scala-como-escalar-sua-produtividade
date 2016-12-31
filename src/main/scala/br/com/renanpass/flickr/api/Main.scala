@@ -11,9 +11,9 @@ object Main extends App{
 
   client.searchPhotos(Some("test")) match {
     case Left(l) => println("error calling flickf client: " + l.message)
-    case Right(r) => {
+    case Right(r) =>
       println("success")
       r.foreach{println}
-    }
+
   }
 }
