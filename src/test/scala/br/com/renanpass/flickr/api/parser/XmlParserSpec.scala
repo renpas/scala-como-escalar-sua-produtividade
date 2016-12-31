@@ -13,14 +13,14 @@ class XmlParserSpec extends Specification{
   def is = s2"""
     This is a specification for the XmlParser
 
-    it should parse sucessifuly a valid xml file ${sucessParseSpec}
+    it should parse successfully a valid xml file ${successParseSpec}
     it should parse all the elements from the xml file ${xmlParseElementsSpec}
     it should return an flicker error if there is an error during parse ${invalidXmlSpec}
     """
 
-  def sucessParseSpec = {
+  def successParseSpec = {
     val response = readXmlFromResource("/photos-list.xml")
-    response.isRight must_==   true
+    response.isRight must beTrue
   }
 
   def xmlParseElementsSpec = {
@@ -31,7 +31,7 @@ class XmlParserSpec extends Specification{
 
   def invalidXmlSpec = {
     val response = readXmlFromResource("/empty.xml")
-    response.isLeft must_== true
+    response.isLeft must beTrue
   }
 
   def readXmlFromResource(fileName:String):Either[FlickrError, Seq[Photo]] = {
