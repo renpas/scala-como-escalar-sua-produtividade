@@ -5,5 +5,15 @@ import com.typesafe.config.ConfigFactory
 
 object Main extends App{
   val conf = ConfigFactory.load
-  println(conf.getString("flickr.api.key"))
+  val apiKey: String = conf.getString("flickr.api.key")
+
+  val client = new FlickrClient(apiKey)
+
+  client.searchPhotos(Some("test")) match {
+    case Left(l) => println("error calling flickf client: " + l.message)
+    case Right(r) => {
+      println("success")
+      r.foreach{println}
+    }
+  }
 }

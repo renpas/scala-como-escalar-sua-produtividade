@@ -5,4 +5,4 @@ class FlickrUnknownError(message:String) extends FlickrError(message)
 
 class FlickrKnownError(message:String) extends FlickrError(message)
 
-class ClientError(message:String) extends FlickrError(message)
+
