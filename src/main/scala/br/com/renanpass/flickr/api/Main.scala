@@ -1,7 +1,9 @@
 package br.com.renanpass.flickr.api
 
+import br.com.renanpass.flickr.api.parser._
+import com.typesafe.config.ConfigFactory
+
 object Main extends App{
-
-  println("Test")
-
+  val conf = ConfigFactory.load
+  println(conf.getString("flickr.api.key"))
 }
