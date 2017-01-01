@@ -31,7 +31,6 @@ class FlickrClientSpec extends Specification with Mockito{
 
   def apiCallErrorSpec = {
     val client = new FlickrClient("key", "", mockParser, mockHttpClient)
-    val url: String = "/?method=flickr.photos.search&api_key=key"
     mockHttpClient.get(anyString) answers { i => Left(new GetError(new Exception("io"))) }
     val resp = client.searchPhotos(None)
     resp must beLeft[ClientError]
