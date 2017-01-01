@@ -8,16 +8,14 @@ import org.specs2.Specification;
  */
 class HttpClientSpec extends Specification {
 
+    val httpClient = new HttpClient
+
     def is = s2"""
 
         This is a specification for the XmlParser
 
-        It should be ok if te response has a body ${responseWithBodySpec}
-        It should be left with wrong Url ${invalidUrlSpec}
+        It should be ok if the response has a body ${httpClient.get("https://httpbin.org/get") must beRight[GetResponse]}
+        It should be left with wrong Url ${httpClient.get("bla-bla") must beLeft[GetError]}
       """
 
-
-  def responseWithBodySpec =  new HttpClient().get("https://httpbin.org/get") must beRight[GetResponse]
-
-  def invalidUrlSpec = new HttpClient().get("bla-bla") must beLeft[GetError]
 }
