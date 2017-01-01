@@ -1,7 +1,7 @@
-package br.com.renanpass.flickr.api.http;
+package br.com.renanpass.flickr.api.http
 
 import br.com.renanpass.flickr.api.error.GetError
-import org.specs2.Specification;
+import org.specs2.Specification
 
 /**
  * @author rsouza on 31/12/16.
